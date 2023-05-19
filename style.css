@@ -1,0 +1,181 @@
+:root {
+  --backMain: hsl(222, 26%, 31%);
+  --backToggleKeyboard: hsl(223, 31%, 20%);
+  --backScreen: hsl(224, 36%, 15%);
+  --backCancelKey: hsl(225, 21%, 49%);
+  --backCancelKeyHover:hsl(226, 40%, 71%); 
+  --cancelKeyShadow: hsl(224, 28%, 35%);
+  --backResult: hsl(6, 63%, 50%);
+  --backResultHover: hsl(6, 73%, 66%);
+  --resultShadow: hsl(6, 70%, 34%);
+  --backKeypad: hsl(30, 25%, 89%);
+  --backKeypadHover: hsl(26, 64%, 98%);
+  --shadowKeypad: hsl(28, 16%, 65%);
+  --keypadColor: hsl(221, 14%, 31%);
+  --defColor: white;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700; 
+}
+body {
+  font-size: 32px;
+  background: var(--backMain);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 0;
+  color: var(--defColor);
+}
+h1 {
+  font-size: 1.6rem;
+}
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+form label {
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  margin-right: 1rem;
+}
+#switch {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 3.4rem;
+  height: 20px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background: var(--backToggleKeyboard);
+  padding: 4px;
+}
+#switch::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--backResult);
+  cursor: pointer;
+}
+#switch::-webkit-slider-thumb:hover {
+  background: var(--backResultHover);
+}
+#switch::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--backResult); 
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+#legend {
+  width: 3.4rem;
+  position: absolute;
+  color: var(--defColor);
+  font-size: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  right: 0;
+  top: 0;
+  transform: translateY(-100%);
+  padding: 4px 8px;
+}
+#screen {
+  background: var(--backScreen);
+  padding: 1.4rem 1.1rem;
+  border-radius: 6px;
+  color: var(--defColor);
+  text-align: right;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+#keyboard {
+  background: var(--backToggleKeyboard);
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto auto;
+}
+.dkey, .cancel, #result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.dkey {
+  background: var(--backKeypad);
+  color: var(--keypadColor);
+  font-size: 1.5rem;
+  box-shadow: 0 4px 0 0 var(--shadowKeypad);
+}
+.dkey:hover {
+  background: var(--backKeypadHover);
+}
+.cancel {
+  background: var(--backCancelKey);
+  color: var(--defColor);
+  font-size: 1.2rem;
+  box-shadow: 0 4px 0 0 var(--cancelKeyShadow);
+}
+.cancel:hover {
+  background: var(--backCancelKeyHover);
+}
+#reset {
+  grid-column: 1/3;
+}
+#result {
+  grid-column: 3/5;
+  background: var(--backResult);
+  font-size: 1.2rem;
+  color: var(--defColor);
+  box-shadow: 0 4px 0 0 var(--resultShadow);
+}
+#result:hover {
+  background: var(--backResultHover);
+}
+
+@media screen and (min-width:600px) {
+  body {
+    padding: 3rem 0;
+  }
+  main {
+    width: 500px;
+    margin: 0 auto;
+  }
+  #keyboard {
+    gap: 20px;
+    padding: 20px;
+  }
+  .dkey, .cancel, #result {
+    height: 2.8rem;
+  }
+}
+
+@media screen and (max-width:600px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+  main {
+    width: 100%;
+    margin: 0 auto;
+  }
+  #keyboard {
+    gap: 15px 12px;
+    padding: 15px;
+  }
+  .dkey, .cancel, #result {
+    height: 3.4rem;
+  }
+}
